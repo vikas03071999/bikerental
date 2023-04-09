@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import BikeRentalLogo from "../assets/images/BikeRentalLogo.png"
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const activeNavbarItemCss = "cursor-pointer text-[#646cff] ease-in duration-300";
+  const inactiveNavbarItemCss = "cursor-pointer hover:text-[#646cff] ease-in duration-300";
+  const [activeNavItem,setActiveNavItem] = useState("Home");
+  useEffect(()=>{
+    if(location.pathname.includes("about-bike-rental")){
+      setActiveNavItem("About");
+    }
+    else if(location.pathname.includes("vehicle-models-available")){
+      setActiveNavItem("Vehicle Models");
+    }
+    else if(location.pathname.includes("hear-from-our-customers")){
+      setActiveNavItem("Testimonials");
+    }
+    else if(location.pathname.includes("meet-our-team")){
+      setActiveNavItem("Our Team");
+    }
+    else if(location.pathname.includes("reach-out-to-us")){
+      setActiveNavItem("Contact");
+    }
+    else{
+      setActiveNavItem("Home");
+    }
+  },[location])
+  
   return (
     <div className='navBarContainer w-full px-4 py-6 bg-[#2d2d2d]'>
       <div className='navbarWrapper flex items-center text-white'>
@@ -16,12 +41,12 @@ const Navbar = () => {
           </div>
         </div>
         <ul className='midnav text-white text-lg font-semibold basis-6/12 flex gap-5 items-center list-none'>
-          <li className='cursor-pointer hover:text-[#646cff] ease-in duration-300' onClick={()=>navigate("/")}>Home</li>
-          <li className='cursor-pointer hover:text-[#646cff] ease-in duration-300' onClick={()=>navigate("/about-bike-rental")}>About</li>
-          <li className='cursor-pointer hover:text-[#646cff] ease-in duration-300' onClick={()=>navigate("/vehicle-models-available")}>Vehicle models</li>
-          <li className='cursor-pointer hover:text-[#646cff] ease-in duration-300' onClick={()=>navigate("/hear-from-our-customers")}>Testimonials</li>
-          <li className='cursor-pointer hover:text-[#646cff] ease-in duration-300' onClick={()=>navigate("/meet-our-team")}>Our Team</li>
-          <li className='cursor-pointer hover:text-[#646cff] ease-in duration-300' onClick={()=>navigate("/reach-out-to-us")}>Contact</li>
+          <li className={activeNavItem === "Home" ? activeNavbarItemCss : inactiveNavbarItemCss} onClick={()=>navigate("/")}>Home</li>
+          <li className={activeNavItem === "About" ? activeNavbarItemCss : inactiveNavbarItemCss} onClick={()=>navigate("/about-bike-rental")}>About</li>
+          <li className={activeNavItem === "Vehicle Models" ? activeNavbarItemCss : inactiveNavbarItemCss} onClick={()=>navigate("/vehicle-models-available")}>Bike models</li>
+          <li className={activeNavItem === "Testimonials" ? activeNavbarItemCss : inactiveNavbarItemCss} onClick={()=>navigate("/hear-from-our-customers")}>Testimonials</li>
+          <li className={activeNavItem === "Our Team" ? activeNavbarItemCss : inactiveNavbarItemCss} onClick={()=>navigate("/meet-our-team")}>Our Team</li>
+          <li className={activeNavItem === "Contact" ? activeNavbarItemCss : inactiveNavbarItemCss} onClick={()=>navigate("/reach-out-to-us")}>Contact</li>
         </ul>
         <div className='rightnav basis-3/12 flex justify-end gap-6 items-center'>
         <span className='text-lg font-semibold cursor-pointer hover:text-[#646cff] ease-in duration-300'>Sign in</span>

@@ -6,6 +6,8 @@ const BookRide = () => {
             <div className='bookrideWrapper flex items-center px-8 py-8 border bg-gradient-to-t from-white via-slate-200 to-white'>
                 <div className='form flex flex-col gap-10'>
                     <h2 className=' text-3xl font-bold'>Book a bike</h2>
+                    <div className='confirmation w-full bg-[#c3fabe] hidden'>We sent a confirmation email, please click on the link to confirm the order</div>
+                    <div className='validation w-full bg-[#f8d7da] hidden'>All fields are required</div>
                     <div className='inputSection flex items-center flex-wrap gap-14 w-full'>
                         <div className='singleInput flex basis-1/4 flex-col gap-3'>
                             <label htmlFor='bikeType' className='text-xl font-semibold'><i className="fa-solid fa-motorcycle text-[#646cff]"></i> Select bike brand <span className='text-[#646cff]'>*</span></label>

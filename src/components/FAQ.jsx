@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FAQbackground from '../assets/images/FAQbackground.png'
+import { faqs } from '../data/data'
 
 const FAQ = () => {
+  const activeFaqAnswerCss = "faqAnswer text-[#706f7b] px-8 py-3";
+  const inactiveFaqAnswerCss = "faqAnswer hidden text-[#706f7b] px-8 py-3";
+  const activeFaqQuestionCss = "question flex justify-between bg-[#646cff] text-white cursor-pointer text-xl font-semibold border-b border-[#dedddd] px-4 py-3";
+  const inactiveFaqQuestionCss = "question flex justify-between cursor-pointer text-xl font-semibold border-b border-[#dedddd] px-4 py-3"
+  const [activeFaq, setActiveFaq] = useState(faqs[0]);
   return (
     <div className='faqContainer mt-36 flex justify-center' style={{backgroundImage:`url(${FAQbackground})`,backgroundRepeat:"no-repeat",backgroundSize:"auto",backgroundPosition:"0 50%"}}>
         <div className='faqWrapper w-2/3 flex flex-col items-center gap-3'>
@@ -11,7 +17,17 @@ const FAQ = () => {
                 Process on Our Website: Answers to Common Concerns and Inquiries.
             </span>
             <div className='mt-4 px-4 py-4 w-full border border-[#8e8c8c] bg-white'>
-                <h3 className='question flex justify-between cursor-pointer text-xl font-semibold border-b border-[#dedddd] px-4 py-3'>1. What is special about comparing rental bike deals? <i className="fa-solid fa-angle-down"></i></h3>
+              {
+                faqs.map((faq,index) => {
+                  return (
+                    <>
+                      <h3 className={activeFaq === faq ? activeFaqQuestionCss : inactiveFaqQuestionCss} onClick={()=>setActiveFaq(faq)}>{index+1}. {faq.question}<i className="fa-solid fa-angle-down"></i></h3>
+                      <p className={activeFaq === faq ? activeFaqAnswerCss : inactiveFaqAnswerCss}>{faq.answer}</p>
+                    </>
+                  )
+                })
+              }
+                {/* <h3 className='question flex justify-between cursor-pointer text-xl font-semibold border-b border-[#dedddd] px-4 py-3'>1. What is special about comparing rental bike deals? <i className="fa-solid fa-angle-down"></i></h3>
                 <p className='faqAnswer hidden text-[#706f7b] px-8 py-3'>Comparing rental bike deals is important as it helps find the
                    best deal that fits your budget and requirements, ensuring 
                    you get the most value for your money. By comparing various options,
@@ -33,7 +49,7 @@ const FAQ = () => {
                    companies. Look for discount codes and coupons: Search for discount codes 
                    and coupons that you can use to lower the rental price. Renting from an 
                    off-airport location can sometimes result in lower prices.
-                </p>
+                </p> */}
             </div>
         </div>
     </div>
