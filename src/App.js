@@ -11,7 +11,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div className="appContainer bg-gradient-to-b from-white via-gray-200 to-slate-200">
+    <div className="appContainer bg-gradient-to-b from-white via-gray-200 to-slate-200 relative w-full overflow-x-hidden">
       <BrowserRouter>
         <Navbar />
           <Routes>

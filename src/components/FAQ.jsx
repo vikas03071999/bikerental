@@ -3,16 +3,16 @@ import FAQbackground from '../assets/images/FAQbackground.png'
 import { faqs } from '../data/data'
 
 const FAQ = () => {
-  const activeFaqAnswerCss = "faqAnswer text-[#706f7b] px-8 py-3";
-  const inactiveFaqAnswerCss = "faqAnswer hidden text-[#706f7b] px-8 py-3";
-  const activeFaqQuestionCss = "question flex justify-between bg-[#646cff] text-white cursor-pointer text-xl font-semibold border-b border-[#dedddd] px-4 py-3";
-  const inactiveFaqQuestionCss = "question flex justify-between cursor-pointer text-xl font-semibold border-b border-[#dedddd] px-4 py-3"
+  const activeFaqAnswerCss = "faqAnswer text-sm md:text-base text-[#706f7b] px-8 py-3";
+  const inactiveFaqAnswerCss = "faqAnswer text-sm md:text-base hidden text-[#706f7b] px-8 py-3";
+  const activeFaqQuestionCss = "question flex justify-between bg-[#646cff] text-white cursor-pointer text-base md:text-lg lg:text-xl font-semibold border-b border-[#dedddd] px-4 py-3";
+  const inactiveFaqQuestionCss = "question flex justify-between cursor-pointer text-base md:text-lg lg:text-xl font-semibold border-b border-[#dedddd] px-4 py-3"
   const [activeFaq, setActiveFaq] = useState(faqs[0]);
   return (
     <div className='faqContainer mt-36 flex justify-center' style={{backgroundImage:`url(${FAQbackground})`,backgroundRepeat:"no-repeat",backgroundSize:"auto",backgroundPosition:"0 50%"}}>
-        <div className='faqWrapper w-2/3 flex flex-col items-center gap-3'>
-            <p className='text-2xl font-bold'>FAQ</p>
-            <h2 className='text-5xl font-bold'>Frequently Asked Questions</h2>
+        <div className='faqWrapper w-4/5 md:w-2/3 flex flex-col items-center gap-3'>
+            <p className='text-lg md:text-xl lg:text-2xl font-bold'>FAQ</p>
+            <h2 className='text-xl md:text-3xl lg:text-5xl text-center font-bold'>Frequently Asked Questions</h2>
             <span className='text-[#706f7b] text-center'>Frequently Asked Questions About the bike Rental Booking
                 Process on Our Website: Answers to Common Concerns and Inquiries.
             </span>

@@ -7,12 +7,12 @@ const VehicleModels = () => {
   const navigate = useNavigate();
   return (
     <>
-    <div className='vehicleModelsContainer px-20 py-20 items-center justify-center'>
+    <div className='vehicleModelsContainer px-10 sm:px-16 md:px-20 py-20 items-center justify-center'>
       <div className='vehicleModelsWrapper flex flex-wrap w-full'>
         {
           bikesInformation.map(bike => {
             return (
-              <div className='basis-1/3 px-2 mt-5 shadow-[0px_20px_20px_3px_#00000024]'><div className='vehicleModelCard flex flex-col'>
+              <div className='basis-full md:basis-1/2 lg:basis-1/3 px-2 mt-5 shadow-[0px_20px_20px_3px_#00000024]'><div className='vehicleModelCard flex flex-col'>
             <img src={bike.modelImage} alt="bike-image" />
             <div className='bikeDetails flex flex-col gap-2 px-2 py-2'>
               <div className='detailRow flex justify-between'>
@@ -220,8 +220,8 @@ const VehicleModels = () => {
           </div></div> */}
       </div>
     </div>
-    <div className='bookBikeAd py-16 flex items-center justify-center bg-white gap-3'>
-      <h1 className='text-4xl font-bold'>Book a bike by getting in touch with us </h1> <span className='text-4xl font-bold'><i class="fa-solid fa-phone text-[#646cff]"></i> (789) 456-342</span>
+    <div className='bookBikeAd py-3 sm:py-5 md:py-8 lg:py-16 px-2 flex flex-wrap items-center justify-center bg-white gap-3'>
+      <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold'>Book a bike by getting in touch with us </h1> <span className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold'><i class="fa-solid fa-phone text-[#646cff]"></i> (789) 456-342</span>
     </div>
     </>
   )

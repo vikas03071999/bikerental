@@ -10,12 +10,12 @@ const BikeModelShowcase = () => {
     <div className='bikeModelShowContainer mt-28 px-10'>
       <div className='bikeModelShowWrapper flex flex-col items-center justify-center'>
         <div className='bikeModelShowHeader flex flex-col text-center gap-5'>
-            <p className='text-3xl font-semibold'>Bike Models</p>
-            <h1 className='text-5xl font-bold'>Our rental fleet</h1>
+            <p className='text-xl md:text-2xl lg:text-3xl font-semibold'>Bike Models</p>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold'>Our rental fleet</h1>
             <p className='text-[#6e6b6b]'>Choose from a wide variety of our amazing bikes to rent for your next adventure.</p>
         </div>
-        <div className='bikeModelImgPrice mt-10 flex w-full gap-4'>
-            <div className='bikeModel flex flex-col basis-3/12 gap-3'>
+        <div className='bikeModelImgPrice mt-10 flex flex-wrap lg:flex-nowrap w-full'>
+            <div className='bikeModel mb-12 flex flex-col basis-full items-center lg:basis-4/12 gap-3'>
               {
                 bikesInformation.map(bike => {
                   return (
@@ -30,10 +30,10 @@ const BikeModelShowcase = () => {
                 <button className=' w-9/12 px-5 py-3 bg-[#f7f5f5] text-black text-2xl text-left  font-bold hover:bg-[#646cff] hover:text-white ease-in duration-200' onClick={()=>setViewBike(Yamaha1)}>Yamaha</button>
                 <button className=' w-9/12 px-5 py-3 bg-[#f7f5f5] text-black text-2xl text-left  font-bold hover:bg-[#646cff] hover:text-white ease-in duration-200' onClick={()=>setViewBike(Honda1)}>Honda</button> */}
             </div>
-            <div className='bikeImg flex items-center justify-center basis-6/12'>
+            <div className='bikeImg flex mb-12 items-center justify-center basis-full md:basis-3/5 md:items-start lg:basis-6/12'>
                 <img className='object-contain' src={viewBike.image} alt="bike-image"/>
             </div>
-            <div className='bikePriceAndSpecs flex items-center flex-col basis-3/12'>
+            <div className='bikePriceAndSpecs mb-12 flex items-center flex-col basis-full w-4/5 md:basis-2/5 md:items-end lg:basis-4/12'>
                 <div className='price w-4/5 text-xl font-semibold py-2 bg-[#646cff] text-white flex items-center justify-center'>
                   <span className='text-2xl font-bold'>{viewBike.bikeRent}</span> / rent per day
                 </div>
